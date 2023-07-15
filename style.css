@@ -1,0 +1,67 @@
+body {
+    background-color: rgb(180, 165, 165);
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.pizza {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pizza img {
+  margin-right: 20px;
+}
+
+.pizza h5 {
+  margin-bottom: 0;
+}
+
+.pizza span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pizza strong {
+  font-size: 24px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.btn {
+    background-color: orangered;
+    color: black;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    border: 1px solid black;
+
+
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  h1{
+    text-align: center;
+  }
+
+ 
