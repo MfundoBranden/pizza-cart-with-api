@@ -10,6 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="pizza.js"></script>
+    <script src="history.js"></script>
+    <script src="pizza.js"></script>
+ 
+    
 </head>
 
 <body x-data="pizzaCart">
@@ -20,15 +24,15 @@
             <div>
                 <div>
                     Username:<input type="text" x-model="username">
-                    <button x-on:click="login" x-show="!cartId">Login</button>
-                    <button x-on:click="logout" x-show="cartId">logout</button>
+                    <button x-on:click="login">Login</button>
+                    <button x-on:click="logout" x-show="username && cartId">logout</button>
                 </div><br><br>
                 <div x-show="cartId">
                     <b>Cart code :</b> <span x-text="cartId"></span><br><br>
                     Total Pizza Availabe: <strong x-text="pizzas.length" x-show="username && cartId"></strong>
                 </div>
             </div>
-           
+
             <div x-show="cartTotal>0">
 
                 <h2>Pizza cart</h2>
@@ -72,58 +76,176 @@
             </div>
         </div>
 
-        <div class="pizzas" x-show="username  && cartId">
-            <h2>Pizzas</h2>
-           <template x-for="pizza in pizzas">
-            <template x-if="pizza['size']=='small'">
-                <div class="pizza">
-                    <span><img x-bind:src="pizzaImage(pizza)" height="100" alt=""></span>
-                    <h5 x-text="pizza.flavour"></h5>
-                    <span x-text="pizza.size"></span>@
-                    <strong>
-                        R<span x-text="pizza.price"></span>
-                    </strong>
+        <div class="piza">
+            <div class="large_pizza">
+                <h2>Large Pizza</h2>
+                <img src="large.png" width="150">
+
+                <div x-data="{Buy}">
+                    <div class="Buy" x-text="Buy"></div>
                     <div>
-                        <button class="btn" x-on:click="addPizzaToCart(pizza.id)">BUY</button>
+                        <button class="Mdesign W Bdesin" @click="large++">BUY</button>
+                        <span x-text="count"></span>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div><b>BBQ Chicken:</b> Chicken, mushroom, onion, BBQ sauce, spring onion</div>
+                    <div><b>Four Seasons:</b> Pepperoni, mushroom, olives, green pepper, onion</div>
+                    <div><b>Sweet & Sour Chicken:</b> Chicken, green pepper, pineapple, sweet & sour
+                        sauce.</div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="medium_pizza">
+                <h2>Medium Pizza</h2>
+                <img src="medium.png" width="150">
+
+                <div x-data="{Buy}">
+                    <div class="Buy" x-text="Buy"></div>
+                    <div>
+                        <button class="Mdesign W Bdesign" @click="medium++">BUY</button>
+                        <span x-text="count"></span>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div><b>Chicken & Mushroom:</b> Chicken, mushroom, diced tomato, onion, Debonairs
+                        sauce.</div>
+                    <div><b>Mexican Fiesta:</b> Ground beef, jalapeño, green pepper, onion, Mexican
+                        sauce.</div>
+                    <div><b>Garlic Meaty Supreme:</b> Garlic spread base, pepperoni, ham, bacon,
+                        ground beef.</div>
+                </div>
+
+            </div>
+
+            <div class="small_pizza">
+                <h2>Small Pizza</h2>
+                <img src="small.png" width="150">
+
+                <div x-data="{Buy}">
+                    <div class="Buy" x-text="Buy"></div>
+                    <div>
+                        <button class="Mdesign W Bdesign" @click="small++">BUY</button>
+                        <span x-text="count"></span>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div><b>Sweet & Sour Rib:</b> Spare rib, sweet & sour sauce</div>
+                    <div><b>Something Meaty:</b> Ham, pepperoni, bacon, ground beef, BBQ sauce</div>
+                    <div><b>Tikka Chicken:</b> Chicken, mushroom, sweet bell pepper, onion, Tikka sauce, spring onion.
                     </div>
                 </div>
-            </template>
-           </template>
 
+            </div>
 
-
-           <template x-for="pizza in pizzas">
-            <template x-if="pizza['size']=='medium'">
-                <div class="pizza">
-                    <span><img x-bind:src="pizzaImage(pizza)" height="100" alt=""></span>
-                    <h5 x-text="pizza.flavour"></h5>
-                    <span x-text="pizza.size"></span>@
-                    <strong>
-                        R<span x-text="pizza.price"></span>
-                    </strong>
-                    <div>
-                        <button class="btn" x-on:click="addPizzaToCart(pizza.id)">BUY</button>
-                    </div>
-                </div>
-            </template>
-           </template>
-
-           <template x-for="pizza in pizzas">
-            <template x-if="pizza['size']=='large'">
-                <div class="pizza">
-                    <span><img x-bind:src="pizzaImage(pizza)" height="100" alt=""></span> 
-                    <h5 x-text="pizza.flavour"></h5>
-                    <span x-text="pizza.size"></span>@
-                    <strong>
-                        R<span x-text="pizza.price"></span>
-                    </strong>
-                    <div>
-                        <button class="btn" x-on:click="addPizzaToCart(pizza.id)">BUY</button>
-                    </div>
-                </div>
-            </template>
-           </template>
         </div>
+
+        <div class="pizzas01" x-show="username  && cartId">
+            <h2>Pizzas</h2>
+            <template x-for="pizza in pizzas">
+                <template x-if="pizza['size']=='small'">
+                    <div class="pizza">
+                        <div class="pizzas03"><span><img x-bind:src="pizzaImage(pizza)" height="100" alt=""></span>
+                        </div>
+                        <div class="pizzas03">
+                            <h5 x-text="pizza.flavour"></h5>
+                        </div>
+                        <span x-text="pizza.size"></span>@
+                        <strong>
+                            R<span x-text="pizza.price"></span>
+                        </strong>
+                        <div class="pizzas03">
+                            <button class="btn" x-on:click="addPizzaToCart(pizza.id)">BUY</button>
+                        </div>
+                    </div>
+                </template>
+            </template>
+
+
+
+            <template x-for="pizza in pizzas">
+                <template x-if="pizza['size']=='medium'">
+                    <div class="pizzas02">
+                        <div class="pizzas03"><span><img x-bind:src="pizzaImage(pizza)" height="100" alt=""></span>
+                        </div>
+                        <div class="pizzas03">
+                            <h5 x-text="pizza.flavour"></h5>
+                        </div>
+                        <span x-text="pizza.size"></span>@
+                        <strong>
+                            R<span x-text="pizza.price"></span>
+                        </strong>
+                        <div class="pizzas03">
+                            <button class="btn" x-on:click="addPizzaToCart(pizza.id)">BUY</button>
+                        </div>
+                    </div>
+                </template>
+            </template>
+
+            <template x-for="pizza in pizzas">
+                <template x-if="pizza['size']=='large'">
+                    <div class="pizzas02">
+                        <div class="pizzas03"><span><img x-bind:src="pizzaImage(pizza)" height="100" alt=""></span>
+                        </div>
+                        <div class="pizzas03">
+                            <h5 x-text="pizza.flavour"></h5>
+                        </div>
+                        <span x-text="pizza.size"></span>@
+                        <strong>
+                            R<span x-text="pizza.price"></span>
+                        </strong>
+                        <div class="pizzas03">
+                            <button class="btn" x-on:click="addPizzaToCart(pizza.id)">BUY</button>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </div>
+
+    <div class="contact_us">
+
+
+        <div class="contact">
+            <h2>Contact details</h2>
+            Contact us at: (021)-541-1000
+            <div>
+                twitter
+            </div>
+            <div>
+                /fb
+            </div>
+            <div>
+                /insta
+            </div>
+            <div>
+                @pizzasave
+            </div>
+        </div>
+
+
+        <div class="adress">
+            <div>
+                Pizza Plaza
+            </div>
+            <div>
+                Dough Road
+            </div>
+            <div>
+                Base Town
+            </div>
+        </div>
+
     </div>
 </body>
 

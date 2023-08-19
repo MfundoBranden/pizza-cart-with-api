@@ -127,7 +127,7 @@ document.addEventListener('alpine:init', () => {
                 this.pay(this.paymentAmount).then((result) => {
                     if (result.data.status == "failure") {
                         this.message = result.data.message;
-                        setTimeout(() => (this.message = ""), 3000);
+                        setTimeout(() => (this.message = ""), 6000);
                     } else {
                         this.message = "Payment received";
                         this.message = this.username + " , made a successful purchase for your order!";
